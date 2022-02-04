@@ -25,7 +25,7 @@ img.addEventListener("touchstart", function(){
     audio.play();
 });
 
-img.addEventListener("touchmove", function(){
+img.addEventListener("touchcancel", function(){
     img.src = 'image1.png';
     audio.pause();
 })
