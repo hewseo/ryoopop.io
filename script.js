@@ -1,76 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POPRyoo</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body onload="startCount()">
-    <div class="container">
-        <h1>RyooSiheon</h1>
-        <p id="score">0</p>
-        <p></p>
-        <p></p>
-        <img src="image1.png" alt="Invalid" id="ryoo1" height="600px">
-        <div class="tabs">
-            <div class="tab">
-               <input type="checkbox" id="chck1">
-               <label class="tab-label" for="chck1">
-                <i class="fas fa-trophy" style="color: gold; margin: 0px 10px 0px 10px; margin-left: -25px;
-                margin-right: 30px;"></i>
-                #1 <span class="flag-icon flag-icon-hk" style="margin: 0px 10px 0px 10px;"></span>120.3B &nbsp;
-                LeaderBoard &nbsp; <span class="flag-icon flag-icon-my" style="margin: 0px 10px 0px 10px;"></span>
-                <span id="my_score">10000</span>
-                </label>
+var img = document.getElementById("ryoo1");
+var count = document.getElementById("score");
+var malaysiaScore = document.getElementById('my_score');
+var score = 0;
+var MyScore = 10000;
+var audio = new Audio('audio.mp3');
+var hk_score = 1000, tw_score = 430, th_score = 200, jp_score = 150, fi_score = 250, se_score = 100, pl_score = 500, dm_score = 280, id_score=590, hu_score=319, sr_score = 300; 
 
-               <div class="tab-content">
-                    <table id="table">
-                        <tr class="bordered" id="somerow">
-                            <td></td>
-                            <td><i class="fa fa-globe" style="color: blue;"></i></td>
-                            <td>WorldWide</td>
-                            <td id="wide_score">455,615,518,558</td>
-                        </tr>
-                        <tr class="bordered">
-                            <td><i class='fas fa-medal' style="color: gold;"></i></td>
-                            <td><span class="flag-icon flag-icon-hk"></span></td>
-                            <td>Hong Kong</td>
-                            <td id="wide_score">19</td>
-                        </tr>
-                        <tr class="bordered"> 
-                            <td><i class='fas fa-medal' style="color: silver;"></i></td>
-                            <td><span class="flag-icon flag-icon-tw"></span></td>
-                            <td>Taiwan</td>
-                            <td id="wide_score">14</td>
-                        </tr>
-                        <tr class="bordered">
-                            <td><i class='fas fa-medal' style="color: brown;"></i></td>
-                            <td><span class="flag-icon flag-icon-th"></span></td>
-                            <td>Thailand</td>
-                            <td id="wide_score">13</td>
-                        </tr>
-                        <tr class="bordered">
-                            <td>4</td>
-                            <td><span class="flag-icon flag-icon-jp"></span></td>
-                            <td>Japan</td>
-                            <td id="wide_score">11</td>
-                        </tr>
-                        <tr class="bordered">
-                            <td>5</td>
-                            <td><span class="flag-icon flag-icon-my"></span></td>
-                            <td><b>Malaysia</b></td>
-                            <td id="wide_score">10000</td>
-                        </tr>
-                        <tr class="bordered">
-                            <td>6</td>
-                     
-               </div>
+// mouseclick event
+img.addEventListener("mousedown", function(){
+    increaseScore();
+    img.src = 'image2.png';
+    audio.play();
+});
+    
+img.addEventListener("mouseup", function(){
+    img.src = 'image1.png';
+    audio.pause();
+});
 
-            </div>
-         </div>
-    </div>
-</body>
-</html>
+// touch event
+img.addEventListener("touchstart", function(){
+    increaseScore();
+    img.src = 'image2.png';
+    audio.play();
+});
+
+img.addEventListener("touchmove", function(){
+    img.src = 'image1.png';
+    audio.pause();
+})
+
+
+// Score on leaderboard
+setInterval(startCountHk, 1);
+
+function startCountHk(){
+    hk_score++;
+    document.getElementById("table").rows[1].cells.item(3).innerHTML = hk_score;
+}
+
+setInterval(startCountTw, 20);
+
+function startCountTw(){
+    tw_score++;
+    document.getElementById("table").rows[2].cells.item(3).innerHTML = tw_score;
+}
+
+setInterval(startCountTh, 25);
+
+function startCountTh(){
+    th_score++;
+    document.getElementById("table").rows[3].cells.item(3).innerHTML = th_score;
+}
+
+setInterval(startCountJp, 40);
+
+function startCountJp(){
+    jp_score++;
+    document.getElementById("table").rows[4].cells.item(3).innerHTML = jp_score;
+}
+
+setInterval(startCountFi, 34);
+
+function startCountFi(){
+    fi_score++;
+    document.getElementById("table").rows[6].cells.item(3).innerHTML = fi_score;
+}
+
+setInterval(startCountSe, 20);
+
+function startCountSe(){
+    se_score++;
+    document.getElementById("table").rows[7].cells.item(3).innerHTML = se_score;
+}
+
+setInterval(startCountPl, 15);
+
+function startCountPl(){
+    pl_score++;
+    document.getElementById("table").rows[8].cells.item(3).innerHTML = pl_score;
+}
+
+setInterval(startCountDm, 31);
+
+function startCountDm(){
+    dm_score++;
+    document.getElementById("table").rows[9].cells.item(3).innerHTML = dm_score;
+}
+
+setInterval(startCountId, 29);
+
+function startCountId(){
+    id_score++;
+    document.getElementById("table").rows[10].cells.item(3).innerHTML = id_score;
+}
+
+setInterval(startCountHu, 70);
+
+function startCountHu(){
+    hu_score++;
+    document.getElementById("table").rows[11].cells.item(3).innerHTML = hu_score;
+}
+
+setInterval(startCountSr, 5);
+
+function startCountSr(){
+    sr_score++;
+    document.getElementById("table").rows[12].cells.item(3).innerHTML = sr_score;
+}
+
+function increaseScore(){
+    score++;
+    MyScore++;
+    count.innerHTML = score;
+    malaysiaScore.innerHTML = MyScore;
+    document.getElementById("table").rows[5].cells.item(3).innerHTML = MyScore;
+}
